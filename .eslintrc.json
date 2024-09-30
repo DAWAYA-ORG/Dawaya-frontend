@@ -1,0 +1,30 @@
+{
+    "extends": [
+        "next/core-web-vitals",
+        "next/typescript",
+        "next/core-web-vitals",
+        "plugin:@next/next/recommended",
+        "prettier"
+    ],
+    "rules": {
+        "@next/next/no-img-element": "warn",
+        "@next/next/no-html-link-for-pages": "error",
+        "no-var": "error",
+        "no-console": "error",
+        "camelcase": "error"
+    },
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx"],
+            "extends": ["plugin:@typescript-eslint/recommended"],
+            "parser": "@typescript-eslint/parser",
+            "plugins": ["@typescript-eslint"]
+        },
+        {
+            "files": ["tailwind.config.ts"],
+            "rules": {
+                "@typescript-eslint/no-require-imports": "off"
+            }
+        }
+    ]
+}
