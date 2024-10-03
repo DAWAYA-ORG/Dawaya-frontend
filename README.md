@@ -38,6 +38,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Scripts
 
+
 -   `dev`: Run the development server'
 -   `build`: Build the production application'
 -   `start`: Start the production server'
@@ -47,6 +48,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 -   `format`: Format code using Prettier'
 -   `type-check`: Run TypeScript compiler check'
 -   `prepare`: Run `husky` to set up pre-commit and commit-msg hooks
+
 
 ## Contributing
 
