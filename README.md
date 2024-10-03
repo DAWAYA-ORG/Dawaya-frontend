@@ -2,6 +2,7 @@
 
 Dawaya Frontend is a Next.js-based web application for [brief description of what Dawaya does].
 
+
 ## Getting Started
 
 ### Prerequisites
