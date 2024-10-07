@@ -36,9 +36,6 @@ jobs:
         steps:
           - uses: actions/checkout@v3
 
-          - name: Check npx version
-            run: npx --version
-
           - name: Install Vercel CLI
             run: npm install -g vercel
 
