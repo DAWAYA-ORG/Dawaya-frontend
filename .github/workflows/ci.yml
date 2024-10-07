@@ -27,14 +27,20 @@ jobs:
 
             - name: build project
               run: npm run build
-    deploy:
 
+    deploy:
         needs: build
         runs-on: ubuntu-latest
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/featur/test'
 
         steps:
           - uses: actions/checkout@v3
+
+          - name: Install npx
+            run: npm install -g npx
+
+          - name: Install Vercel CLI
+            run: npm install -g vercel
 
           - name: Deploy to Vercel
             uses: amondnet/vercel-action@v25
