@@ -1,48 +1,41 @@
-name: Deploy to vercel
+name: Deploy to Vercel
 
 on:
-    push:
-        branches:
-            - featur/test
+  push:
+    branches:
+      - featur/test
+      - main
+      - develop
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
+  deploy:
+    runs-on: ubuntu-latest
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: "18"
+    steps:
+      - uses: actions/checkout@v3
 
-            - name: Install dependencies
-              run: npm install
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: 'npm'
 
-            - name: Run Linter
-              run: npm run lint:fix
+      - name: Install dependencies
+        run: npm install
 
-            - name: Run Prettier
-              run: npm run format
+      - name: Run Linter
+        run: npm run lint:fix
 
-            - name: build project
-              run: npm run build
+      - name: Run Prettier
+        run: npm run format
 
-    deploy:
-        needs: build
-        runs-on: ubuntu-latest
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/featur/test'
+      - name: Build project
+        run: npm run build
 
-        steps:
-          - uses: actions/checkout@v3
-
-          - name: Install Vercel CLI
-            run: npm install -g vercel
-
-          - name: Deploy to Vercel
-            uses: amondnet/vercel-action@v25
-            with:
-                vercel-token: ${{ secrets.VERCEL_TOKEN }}
-                vercel-org-id: ${{ secrets.ORG_ID }}
-                vercel-project-id: ${{ secrets.PROJECT_ID }}
-                working-directory: ./Dawaya-frontend
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.ORG_ID }}
+          vercel-project-id: ${{ secrets.PROJECT_ID }}
+          working-directory: .
