@@ -1,0 +1,45 @@
+name: Deploy to vercel
+
+on:
+    push:
+        branches:
+            - featur/test
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "18"
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run Linter
+              run: npm run lint:fix
+
+            - name: Run Prettier
+              run: npm run format
+
+            - name: build project
+              run: npm run build
+    deploy:
+
+        needs: build
+        runs-on: ubuntu-latest
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+
+        steps:
+          - uses: actions/checkout@v3
+
+          - name: Deploy to Vercel
+            uses: amondnet/vercel-action@v25
+            with:
+                vercel-token: ${{ secrets.VERCEL_TOKEN }}
+                vercel-org-id: ${{ secrets.ORG_ID }}
+                vercel-project-id: ${{ secrets.PROJECT_ID }}
+                working-directory: ./Dawaya-frontend
