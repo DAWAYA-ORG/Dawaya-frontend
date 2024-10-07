@@ -1,6 +1,8 @@
 const About = () => {
-    const about = 'About';
-    return <div>{about}</div>;
+
+    return <>
+    this is working on feature/test branch 
+    </>
 };
 
 export default About;
