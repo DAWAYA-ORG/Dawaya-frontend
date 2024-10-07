@@ -8,10 +8,25 @@ on:
     #   - develop
 
 jobs:
-  deploy:
+  setup:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/featur/test'
+    steps:
+      - uses: actions/checkout@v3
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+  lint-and-format:
+    needs: setup
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/featur/test'
     steps:
       - uses: actions/checkout@v3
 
@@ -29,6 +44,22 @@ jobs:
 
       - name: Run Prettier
         run: npm run format
+
+  build-and-deploy:
+    needs: lint-and-format
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/featur/test'
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Build project
         run: npm run build
