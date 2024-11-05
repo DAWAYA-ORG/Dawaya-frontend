@@ -8,13 +8,15 @@ const MobileNavigation = () => {
   const pathname = usePathname();
   return (
     <Sheet>
+      {/* To Display Mobile Navigation */}
       <SheetTrigger asChild className='md:hidden'>
         <Button variant='ghost' size='icon'>
           <Menu className='h-6 w-6' />
         </Button>
       </SheetTrigger>
+
       <SheetContent side='right' className='w-[300px] sm:w-[400px]'>
-        <nav className='flex flex-col space-y-4 mt-8'>
+        <aside className='flex flex-col space-y-4 mt-8'>
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -39,7 +41,7 @@ const MobileNavigation = () => {
               sign up
             </Button>
           </div>
-        </nav>
+        </aside>
       </SheetContent>
     </Sheet>
   );

@@ -14,9 +14,9 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className='flex items-center justify-between p-4 '>
+    <nav className='flex items-center justify-between  px-6 py-[10px] min-h-[80px]'>
       <Link href='/' className='flex items-center space-x-2'>
-        <Image src={Logo} alt='DAWAYA Logo' width={40} height={40} />
+        <Image src={Logo} alt='DAWAYA Logo' width={53} height={54} />
         <span className='text-2xl font-bold tracking-[0.5rem] text-[#1A3493]'>
           AWAYA
         </span>
