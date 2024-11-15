@@ -1,3 +1,9 @@
+import About from '../components/Sections/About';
+
 export default function Home() {
-    return <></>;
+    return (
+        <div className='bg-white'>
+            <About />
+        </div>
+    );
 }
