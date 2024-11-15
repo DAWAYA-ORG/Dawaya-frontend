@@ -6,49 +6,47 @@ Dawaya Frontend is a Next.js-based web application for [brief description of wha
 
 ### Prerequisites
 
--   Node.js (v14 or later)
--   npm or yarn
+- Node.js (v14 or later)
+- npm or yarn
 
 ### Installation
 
 1. Clone the repository:
 
-    ```
-    git clone https://github.com/your-username/dawaya-frontend.git
-    cd dawaya-frontend
-    ```
+   ```
+   git clone https://github.com/your-username/dawaya-frontend.git
+   cd dawaya-frontend
+   ```
 
 2. Install dependencies:
 
-    ```
-    npm install
-    # or
-    yarn install
-    ```
+   ```
+   npm install
+   # or
+   yarn install
+   ```
 
 3. Run the development server:
 
-    ```
-    npm run dev
-    # or
-    yarn dev
-    ```
+   ```
+   npm run dev
+   # or
+   yarn dev
+   ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Scripts
 
-
--   `dev`: Run the development server'
--   `build`: Build the production application'
--   `start`: Start the production server'
--   `lint`: Run ESLint'
--   `lint:fix`: Run ESLint and fix issues'
--   `lint:check`: Check for linting issues without fixing'
--   `format`: Format code using Prettier'
--   `type-check`: Run TypeScript compiler check'
--   `prepare`: Run `husky` to set up pre-commit and commit-msg hooks
-
+- `dev`: Run the development server'
+- `build`: Build the production application'
+- `start`: Start the production server'
+- `lint`: Run ESLint'
+- `lint:fix`: Run ESLint and fix issues'
+- `lint:check`: Check for linting issues without fixing'
+- `format`: Format code using Prettier'
+- `type-check`: Run TypeScript compiler check'
+- `prepare`: Run `husky` to set up pre-commit and commit-msg hooks
 
 ## Contributing
 
@@ -78,9 +76,9 @@ Common types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 
 This project uses Husky to run pre-commit hooks. Before committing, Husky will run:
 
--   ESLint
--   Prettier
--   TypeScript type checking
+- ESLint
+- Prettier
+- TypeScript type checking
 
 To ensure Husky is properly set up, run:
 
@@ -94,10 +92,10 @@ This will install Husky and set up the git hooks.
 
 ## Built With
 
--   [Next.js](https://nextjs.org/)
--   [React](https://reactjs.org/)
--   [TypeScript](https://www.typescriptlang.org/)
--   [Tailwind CSS](https://tailwindcss.com/)
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ## Documentation
 
